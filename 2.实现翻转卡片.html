@@ -1,0 +1,64 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-22 18:02:34
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin: 20px;
+        /* 视距：元素距离视图的距离 */
+        perspective: 60rem;
+      }
+      .card-side {
+        border-radius: 15px;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        backface-visibility: hidden;
+        background-color: blanchedalmond;
+        transition: all 0.8s ease;
+      }
+      .card-side.back {
+        transform: rotateY(-180deg);
+        background-color: #0093e9;
+        background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+      }
+      .card-side.front {
+        background-color: aqua;
+        background-color: #8ec5fc;
+        background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+      }
+      .card:hover .card-side.front {
+        transform: rotateY(180deg);
+      }
+      .card:hover .card-side.back {
+        transform: rotateY(0deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-side front">
+        <h1>正面</h1>
+      </div>
+      <div class="card-side back">
+        <h1>背面</h1>
+      </div>
+    </div>
+  </body>
+</html>
