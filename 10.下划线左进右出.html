@@ -1,0 +1,43 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-23 22:23:35
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .hover-underline {
+        color: aqua;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+      }
+
+      .hover-underline::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: aqua;
+        transform: scale(0);
+        transition: transform 0.5s ease-out;
+        transform-origin: right;
+      }
+      .hover-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="hover-underline">This is hover-underline</h1>
+  </body>
+</html>
