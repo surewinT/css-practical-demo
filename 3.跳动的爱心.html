@@ -1,0 +1,52 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-23 18:05:28
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .heart {
+        margin: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: relative;
+        transform: rotate(45deg);
+        /* infinite：无限循环   cubic-bezier：贝塞尔曲线*/
+        animation: beat 0.5s infinite cubic-bezier(0.63, 0.2, 0.65, 1.33);
+      }
+      .heart::before,
+      .heart::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        border-radius: 50%;
+      }
+      .heart::before {
+        left: -50%;
+      }
+      .heart::after {
+        top: -50%;
+      }
+
+      @keyframes beat {
+        to {
+          opacity: 0.7;
+          transform: rotate(45deg) scale(1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heart"></div>
+  </body>
+</html>
