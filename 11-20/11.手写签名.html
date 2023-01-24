@@ -1,0 +1,45 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-24 09:45:05
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var canvas = document.createElement("canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      document.body.appendChild(canvas);
+      var content = canvas.getContext("2d");
+      canvas.addEventListener("mousedown", function (e) {
+        this.isMouseDown = true;
+        // 将画笔移动到点击位置
+        content.moveTo(e.pageX, e.pageY);
+      });
+      canvas.addEventListener("mousemove", function (e) {
+        if (this.isMouseDown) {
+          // 线条绘制
+          content.lineTo(e.pageX, e.pageY);
+          content.stroke();
+        }
+      });
+      canvas.addEventListener("mouseup", function (e) {
+        this.isMouseDown = false;
+      });
+      canvas.addEventListener("dblclick", function (e) {
+        var link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "draw.png";
+        link.click();
+      });
+    </script>
+  </body>
+</html>
