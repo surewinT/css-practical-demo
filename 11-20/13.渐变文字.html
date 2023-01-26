@@ -1,0 +1,38 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-26 11:58:04
+ * @Description: 渐变文字
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        display: inline-block;
+        font-size: 20px;
+        text-align: center;
+        background-image: linear-gradient(
+          to right,
+          rgb(236, 72, 153),
+          rgb(239, 68, 68),
+          rgb(234, 179, 8)
+        );
+        font-weight: bold;
+        /* 文字透明 */
+        color: transparent;
+        /* 背景的显示范围设置成文字 */
+        -webkit-background-clip: text;
+        /* 更改元素中文本的大小写 */
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello world This is a css demo</h1>
+  </body>
+</html>
