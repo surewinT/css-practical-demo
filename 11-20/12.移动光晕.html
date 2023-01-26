@@ -1,0 +1,63 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-26 11:29:50
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn-gradient {
+        background-color: #7983ff;
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-gradient::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: var(--y);
+        left: var(--x);
+        transform: translate(-50%, -50%);
+        transition: all 0.2s ease;
+        background: radial-gradient(circle closest-side, pink, transparent);
+      }
+      .btn-gradient:hover::before {
+        width: 200px;
+        height: 200px;
+      }
+      .btn-gradient span {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin: 15% auto auto 45%">
+      <button class="btn-gradient">
+        <span>Hover me</span>
+      </button>
+    </div>
+    <script>
+      var btn = document.querySelector(".btn-gradient");
+      btn.addEventListener("mousemove", function (e) {
+        var rect = e.target.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        btn.style.setProperty("--x", x + "px");
+        btn.style.setProperty("--y", y + "px");
+      });
+    </script>
+  </body>
+</html>
