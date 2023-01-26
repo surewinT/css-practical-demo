@@ -1,0 +1,57 @@
+<!--
+ * @Author: surewinT 840325271@qq.com
+ * @LastEditors: surewinT 840325271@qq.com
+ * @LastEditTime: 2023-01-26 12:17:11
+ * @Description: 希望之光
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #303133;
+        min-height: 100vh;
+        width: 100vw;
+      }
+      div {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        border-radius: 50%;
+        margin: 0 5px;
+        display: inline-block;
+        background-color: aqua;
+        box-shadow: 0 0 50px 5px #79bcec, 0 0 150px 5px #a6d2f2;
+        animation: hd 5s linear infinite;
+        animation-duration: calc(300s/var(--duration));
+      }
+      div:nth-child(2n) {
+        background-color: #df208f;
+        box-shadow: 0 0 50px 5px #df208f, 0 0 150px 5px #df208f;
+      }
+
+      @keyframes hd {
+        from {
+          transform: translateY(100vh) scale(0);
+        }
+        to {
+          transform: translateY(-100vh) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      for (var i = 0; i < 100; i++) {
+        var el = document.createElement("div");
+        el.style.cssText = "--duration:" + (Math.random() * 50 + 10);
+        document.body.appendChild(el);
+      }
+    </script>
+  </body>
+</html>
